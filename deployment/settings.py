@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     '13.49.159.116',
     "localhost",
     "127.0.0.1".
-    "ec2-13-49-159-116.eu-north-1.compute.amazonaws.com'. You may need to add 'ec2-13-49-159-116.eu-north-1.compute.amazonaws.com"
+    "ec2-13-49-159-116.eu-north-1.compute.amazonaws.com"
 ]
 
 
