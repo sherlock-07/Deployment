@@ -1,29 +1,10 @@
 #!/bin/bash
 
-API_DIR="//home/ubuntu/app"
+API_DIR="/home/ubuntu/app"
 BACKUP_DIR="/home/ubuntu/backups"
 DATE=$(date +%F)
 LOG_FILE="/var/log/backup.log"
 
-
-# Ensure backup directory exists
-mkdir -p "$BACKUP_DIR"
-
-# Functions
-log_info() {
-    echo "$(date "+%Y-%m-%d %H:%M:%S") - INFO: $1" >> "$LOG_FILE"
-}
-
-log_error() {
-    echo "$(date "+%Y-%m-%d %H:%M:%S") - ERROR: $1" >> "$LOG_FILE"
-}
-#!/bin/bash
-
-API_DIR="/var/www/your_api"
-BACKUP_DIR="/home/ubuntu/backups"
-DATE=$(date +%F)
-LOG_FILE="/var/log/backup.log"
-# (consider storing securely in ~/.my.cnf)
 
 # Ensure backup directory exists
 mkdir -p "$BACKUP_DIR"
