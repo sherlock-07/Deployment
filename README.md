@@ -88,3 +88,90 @@ You can use any web browser or HTTP client (like curl, Postman, or Insomnia) to 
 * The API endpoints are defined in `api/urls.py`. You can modify them as needed.
 * The data returned by the API can be modified in `api/views.py`.  Specifically, the `SubjectListAPIView` may need to be adjusted to correctly filter subjects for your Software Engineering program.
 * The `api/admin.py` file registers the models with the Django admin interface.
+
+/home/ubuntu/app/
+├── bash_scripts/
+│   ├── health_check.sh
+│   ├── backup_api.sh
+│   └── update_server.sh
+├── setup_cronjobs.sh
+└── README.md
+🛠️ Scripts Overview
+1. health_check.sh
+Purpose: Monitors server resource usage and API health.
+
+Checks:
+
+CPU, memory, and disk space
+
+Web server status (Apache/Nginx)
+
+API endpoint responses for /students and /subjects
+
+Logs to: /var/log/server_health.log
+
+2. backup_api.sh
+Purpose: Backs up Django project files and SQLite database.
+
+Backs Up:
+
+Django project directory (/var/www/your_django_project)
+
+SQLite DB (db.sqlite3)
+
+Backup Location: /home/ubuntu/backups/
+
+Deletes backups older than 7 days
+
+Logs to: /var/log/backup.log
+
+3. update_server.sh
+Purpose: Automates system and API updates.
+
+Performs:
+
+apt update and apt upgrade
+
+git pull on API project
+
+Web server restart
+
+Fails safely if Git pull fails
+
+Logs to: /var/log/update.log
+
+⏰ Automated Scheduling (Cron Jobs)
+The script setup_cronjobs.sh sets up all required cron jobs as the root user.
+
+📅 Cron Schedule
+Script	Frequency	Time
+health_check.sh	Every 6 hours	0 */6
+backup_api.sh	Daily	2:00 AM
+update_server.sh	Every 3 days	3:00 AM
+
+⚙️ Setup Instructions
+1. Make All Scripts Executable
+bash
+Copy
+Edit
+chmod +x bash_scripts/*.sh setup_cronjobs.sh
+2. Run Cron Setup Script as Root
+bash
+Copy
+Edit
+sudo ./setup_cronjobs.sh
+This will:
+
+Validate the script paths
+
+Overwrite root's crontab with the new jobs
+
+Restart the cron daemon
+
+📌 Notes
+Make sure the bash_scripts/ directory contains the latest versions of all three scripts.
+
+Update paths in the scripts (e.g., PROJECT_DIR) to match your environment.
+
+Ensure the server has the necessary permissions and dependencies (curl, git, tar, etc.).
+
