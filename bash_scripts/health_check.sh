@@ -38,7 +38,7 @@ fi
 # Check API endpoints
 for endpoint in "/students" "/subjects"
 do
-    STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost$endpoint)
+    STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://ec2-13-49-159-116.eu-north-1.compute.amazonaws.com/$endpoint)
     if [ "$STATUS" -eq 200 ]; then
         log_info "API $endpoint is OK (Status 200)."
     else
