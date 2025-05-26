@@ -1,6 +1,6 @@
 #!/bin/bash
 
-API_DIR="/var/www/your_api"
+API_DIR="//home/ubuntu/app"
 BACKUP_DIR="/home/ubuntu/backups"
 DATE=$(date +%F)
 LOG_FILE="/var/log/backup.log"

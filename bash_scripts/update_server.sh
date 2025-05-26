@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_DIR="/var/www/your_api"
+REPO_DIR="/home/ubuntu/app"
 LOG_FILE="/var/log/update.log"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
