@@ -23,10 +23,10 @@ This project is a Django-based API that provides endpoints for retrieving studen
     * A virtual environment is highly recommended.
 
 2.  **Installation:**
-    * Clone the repository:
+    * Clone the repository from GitHub:
         ```bash
-        git clone <your_repository_url>
-        cd <your_project_directory>
+        git clone https://github.com/sherlock-07/Deployment.git
+        cd deployment
         ```
     * Create a virtual environment (recommended):
         ```bash
@@ -41,29 +41,13 @@ This project is a Django-based API that provides endpoints for retrieving studen
         ```
 
 3.  **Project Setup:**
-    * If you haven't already, create a Django project and an app:
-        ```bash
-        django-admin startproject deployment
-        cd deployment
-        python manage.py startapp core
-        ```
-    * Add `'core'` to `INSTALLED_APPS` in `deployment/settings.py`:
+    * Navigate to the project directory and ensure you have the `api` app.
+    * Add `'api'` and `'rest_framework'` to `INSTALLED_APPS` in `deployment/settings.py`:
         ```python
         INSTALLED_APPS = [
             # ...
-            'core',
+            'api',
             'rest_framework',
-        ]
-        ```
-    * Copy the code from the provided files (`models.py`, `serializers.py`, `views.py`, `urls.py`, and `admin.py`) into the corresponding files in your Django project.
-    * Include the app's URLs in the project's `urls.py` (`deployment/urls.py`):
-        ```python
-        from django.contrib import admin
-        from django.urls import path, include
-
-        urlpatterns = [
-            path('admin/', admin.site.urls),
-            path('api/', include('core.urls')),  # Include your app's URLs here
         ]
         ```
 
@@ -101,6 +85,6 @@ You can use any web browser or HTTP client (like curl, Postman, or Insomnia) to 
 ## Configuration
 
 * The database configuration is in `deployment/settings.py`. By default, it uses SQLite. You can change it to use other databases like PostgreSQL, MySQL, etc.
-* The API endpoints are defined in `core/urls.py`. You can modify them as needed.
-* The data returned by the API can be modified in `core/views.py`.  Specifically, the `SubjectListAPIView` may need to be adjusted to correctly filter subjects for your Software Engineering program.
-* The `core/admin.py` file registers the models with the Django admin interface.
+* The API endpoints are defined in `api/urls.py`. You can modify them as needed.
+* The data returned by the API can be modified in `api/views.py`.  Specifically, the `SubjectListAPIView` may need to be adjusted to correctly filter subjects for your Software Engineering program.
+* The `api/admin.py` file registers the models with the Django admin interface.
