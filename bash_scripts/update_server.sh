@@ -27,7 +27,7 @@ else
 fi
 
 # Restart web server
-if systemctl restart apache2 || systemctl restart nginx; then
+if systemctl restart nginx; then
     log_info "Web server restarted successfully."
 else
     log_error "Failed to restart web server."
